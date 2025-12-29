@@ -1,7 +1,16 @@
+from deck import Deck
 
 
 def main():
-    pass
+    testDeck = Deck()
+
+    print("~~~~ Original Deck ~~~~")
+    print(testDeck)
+    print("")
+
+    testDeck.deckShuffle()
+    print("~~~~ Shuffled Deck ~~~~")
+    print(testDeck)
 
 
 if __name__ == "__main__":
