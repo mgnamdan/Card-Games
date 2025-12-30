@@ -27,16 +27,25 @@ class Deck:
     def deckShuffle(self):
         shuffle(self.drawPile)
 
+
+    def drawCard(self):
+        drawnCard = self.drawPile.pop(0)
+        self.outPile.append(drawnCard)
+        return drawnCard
+
     
     def __str__(self):
         return "\n".join(str(card) for card in self.drawPile)
     
 
     def __eq__(self, other):
-        selfTotal = len(self.drawPile) + len(self.discardPile) + len(self.outPile)
-        otherTotal = len(other.drawPile) + len(other.discardPile) + len(other.outPile)
+        if isinstance(other, Deck):
+            selfTotal = len(self.drawPile) + len(self.discardPile) + len(self.outPile)
+            otherTotal = len(other.drawPile) + len(other.discardPile) + len(other.outPile)
 
-        if selfTotal == otherTotal:
-            return True
+            if selfTotal == otherTotal:
+                return True
+            else:
+                return False
         else:
-            return False 
+            return False
